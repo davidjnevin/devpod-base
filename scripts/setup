@@ -1,0 +1,5 @@
+#!/bin/bash
+
+/usr/local/bin/mise trust /workspaces/devpod-base/mise.toml && /usr/local/bin/mise install
+
+sudo apt update && sudo apt upgrade -y && sudo apt install curl vim tmux -y
