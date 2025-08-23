@@ -3,6 +3,7 @@
     "context": "..",
     "dockerfile": "Dockerfile",
     "remoteUser": "david"
+    "containerUser": "david"
   },
   "postCreateCommand": "scripts/setup"
 }
