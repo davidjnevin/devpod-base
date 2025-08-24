@@ -1,5 +1,10 @@
 FROM mcr.microsoft.com/devcontainers/base:ubuntu-24.04
 
+# Install the curl, vim and, tmux packages
+RUN apt-get update && apt-get install -y curl vim tmux alacritty
+
+COPY --from=jdxcode/mise /usr/local/bin/mise /usr/local/bin/
+
 ARG USERNAME=david
 ARG USER_UID=1001
 ARG USER_GID=$USER_UID
@@ -21,12 +26,6 @@ RUN groupadd --gid $USER_GID $USERNAME \
 # [Optional] Set the default user. Omit if you want to keep the default as root.
 
 USER $USERNAME
-
-# Install the curl, vim and, tmux packages
-RUN apt-get update && apt-get install -y curl vim tmux alacritty
-
-COPY --from=jdxcode/mise /usr/local/bin/mise /usr/local/bin/
-
 # # Rename the 'vscode' user to 'david'
 # RUN usermod -l david vscode && \
 #     usermod -m -d /home/david david && \
