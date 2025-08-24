@@ -1,6 +1,6 @@
 FROM mcr.microsoft.com/devcontainers/base:ubuntu-24.04
 # Install the curl, vim and, tmux packages
-RUN apt-get update && apt-get install -y curl vim tmux
+RUN apt-get update && apt-get install -y curl vim tmux alacritty
 
 COPY --from=jdxcode/mise /usr/local/bin/mise /usr/local/bin/
 
