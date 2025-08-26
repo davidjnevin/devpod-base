@@ -2,8 +2,11 @@
   "build": {
     "context": "..",
     "dockerfile": "Dockerfile",
-    "remoteUser": "david",
-    "containerUser": "david"
+    "args": {
+      "USERNAME": "peter"
+    },
   },
+  "remoteUser": "peter",
+  "containerUser": "root",
   "postCreateCommand": "scripts/setup"
 }
