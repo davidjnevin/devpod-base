@@ -23,7 +23,7 @@ This will define both the name of the user with `sudo` privileges and the folder
 
 **NB**: The `remoteUser` and the `USERNAME` in the `devcontainer.json` must match.
 
-```json
+```
 {
   "build": {
     "context": "..",
