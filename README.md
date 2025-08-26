@@ -1,14 +1,14 @@
-# Devpod :- base image
+# Devpod: Base Image (Early attempt)
 
 Devpod base settings for future more customized versions.
 
-Using `mise`, `chezmoi` and `devcontainers`.
+Using `mise`, `chezmoi`, and `devcontainers`.
 
-## Prerequisits:
+## Prerequisites:
 
 `Docker` and `devpod cli` installed.
 
-## To use:
+## To Use:
 
 Clone the repo onto your machine.
 
@@ -17,41 +17,39 @@ git clone git@github.com:davidjnevin/devpod-base.git .
 cd devpod-base
 ```
 
-Edit the devcontianer json file to set your username.
+Edit the `devcontainer.json` file to set your username.
 
-This will define both the name of the user with sudo priviledges and the folder strucutre.
+This will define both the name of the user with `sudo` privileges and the folder structure.
 
-**NB**: The remoteUser and the USERNAME in the devcontainer.json must match.
+**NB**: The `remoteUser` and the `USERNAME` in the `devcontainer.json` must match.
 
 ```json
 {
-  "build": {
-    "context": "..",
-    "dockerfile": "Dockerfile",
-    "args": {
-      "USERNAME": "david"  <--- must match
-    }
-  },
-  "remoteUser": "david",  <-- must match
-  "containerUser": "root",
-  "postCreateCommand": "scripts/setup"
+  "build": {
+    "context": "..",
+    "dockerfile": "Dockerfile",
+    "args": {
+      "USERNAME": "david"  <--- must match
+    }
+  },
+  "remoteUser": "david",  <-- must match
+  "containerUser": "root",
+  "postCreateCommand": "scripts/setup"
 }
+```
 
-Then run the following commands from within the devpod-base folder.
+Then run the following commands from within the `devpod-base` folder.
 
-Cavat: This assumes you have a dot files repo setup for use with mise. See this repo for my early attempts at this.
+**Caveat**: This assumes you have a dotfiles repo set up for use with `mise`. See [this repo](https://github.com/davidjnevin/dotfiles-devpod) for my early attempts at this.
 
-Also I use nvim in my devpods, so my ide is set to none. Other options include openvscode or vscode.
+Also, I use `nvim` in my devpods, so my IDE is set to none. Other options include `openvscode` or `vscode`.
 
-The full documentation is available at
-
+The full documentation is available at [https://devpod.sh/docs/what-is-devpod].
 
 ```bash
 devpod provider add docker
-devpod up . --ide none --dotfiles git@github.com:<github_username>/<dotfiles-repo>  (--recreate) # start/mount a devpod using the current directory, no ide set and a specified dotfiles repo. (recreate rebuilds the container)
-devpod ssh  # give a list of available containers to ssh into
+devpod up . --ide none --dotfiles git@github.com:<github_username>/<dotfiles-repo> (--recreate) # start/mount a devpod using the current directory, no IDE set and a specified dotfiles repo. (recreate rebuilds the container)
+devpod ssh  # gives a list of available containers to ssh into
 ```
 
-
-```
-
+This is a work in progress and is subject to change without warning or reason.
